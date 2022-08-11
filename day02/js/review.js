@@ -1,8 +1,7 @@
-// document.querySelector('h1').innerHTML = 'Hello World'; 
-// creates the h1 element & adds it to our page
+/* document.querySelector('h1').innerHTML = 'Hello World'; 
+creates the h1 element & adds it to our page */
 
 /* name != Name 
-
 (Capitals MATTER! Both of those variables are NOT the same!) */
 
 // console.log(name);

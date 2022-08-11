@@ -1,4 +1,4 @@
-
+// DATA TYPES
 firstName = 'John';
 score = 100;
 isPresent = true;
@@ -21,23 +21,27 @@ numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 tens = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 hundreds = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
+// ACCESSING DATA
 selectedUser = 0;
 selectedItem = 'score';
 
 console.log(users);
 
-// bracket notation vs dot notation = the same performance-wise
+// bracket notation vs dot notation = the same performance-wise, both have different instances when they'd be best used
 
 // access by bracket notation
-console.log(users[1]); // selects the 2nd user (**first number is always zero)
+// MUST be used when it comes to arrays (ex: numbers, tens, hundreds arrays listed above). The computer would have difficulties and will complain if you list something using dot notation here (ex: console.log(users.1); vs console.log(users[1]);). Best practice would be to use the brackets to differentiate and annotate what you're trying to target
+console.log(users[1]); // selects the 2nd user (**first number is always zero so the number '1' really means you're targetting the 2nd user)
 
 // access by dot notation
+// can almost be seen as a shortcut since you don't need to worry about typing out the brackets [] or the quotes '' (ex: console.log(users['firstName']; ==> can instead just be written as console.log(users.firstName);). This can save you some time + can potentially prevent human error since VS Code can predict the item that you want to type. Only exception where this would not be best practice is listed up above. 
 console.log(users[0].firstName); // selects 1st user's first name
-console.log(users[1].score); // selects 2nd user's score
+
+console.log(users[selectedUser].score); // selects 1st user's score; 'selectedUser' can be seen up above as equal to 0 and is being called here
 
 // access by both bracket notation
-console.log(users[0]['firstName']); // can also call the information by string name
-console.log(users[1]['score']);
+console.log(users[1]['score']); // selects the 2nd user's score and displays it using the bracket notation method
+console.log(users[0]['firstName']); 
 
 
 // VARIABLE TYPES: var vs const vs let
@@ -46,7 +50,7 @@ console.log(users[1]['score']);
 // const = constant. Const variables cannot be changed
 // let = CAN be changed further down the document
 
-text0 = 0;
+test0 = 0;
 
 const test = 1;
 let test2 = 2;
@@ -106,6 +110,11 @@ console.log(10 % 2); // 0 -- modulo (remainder)
 
 // Assignment Operators
 // = += -= *= /+ %=
+// = assignment
+// += addition assignment
+// -= subtraction assignment
+// *= multiplication assignment
+// /= division assignment
 console.log('assignment operators');
 let x = 10;
 console.log(x); // 10
@@ -113,14 +122,11 @@ console.log(2 + x); // 12
 console.log(x); // 10
 
 x += 2; // 12
-x =+ 2; // 14
+x += 2; // 14
 console.log(x); // 14
 
-x /= 2; // 7
-console.log(x); // 7
-
-x %= 2; // 
-console.log(x); // 
+x %= 3; 
+console.log(x); 
 
 // Comparison Operators
 // == != === !== > < >= <=
@@ -139,6 +145,7 @@ let string1 = 'Hello';
 let string2 = "World";
 // let string3 = `${string1} ${string2} ${10 * 10}`; 
 // this is known as a template literal (using a tilde and ${}, can combine different variables this way)
+// to create strings by doing substitution of placeholders = called interpolation
 let string3 = `
 
 ${string1} 
@@ -147,7 +154,7 @@ ${string2}
 
 ${10 * 10}
 
-`; // the 'special power' here is the ability to format your data as you'd like without needing to use '+' or other individual elements
+`; // the 'special power' here is the ability to format your data as you'd like without needing to use '+' or other individual elements 
 console.log(string3);
 
 // concatenation example listed below. it'd be using '+' within your strings
@@ -171,24 +178,31 @@ console.log(200207 * 100_000_000 > Infinity);
 console.log(7 * {name: 'Joe'}); // = NaN
 
 // BitInt -- this is used for truly LARGE numbers. Used for integers of longer length than the number data type. Created by adding an "n" to the end of an integer.
+// Not something that's used very often since this would require extremely large numbers. It's good to know it exists in case you ever need it for a project, but it's not necessary to memorize for now.
 let myBigInt = BigInt(7);
 console.log(10n * 100_000_000_000n);
 
 
-// Symbol = creates anonymous and unique values
+// Symbol = creates anonymous and unique values. In the example listed below, it shows that it does not matter if your symbols equal the exact same thing, in the computer's eyes they will NEVER be the same or have the same value since they are each their own unique symbol
+// Similar to using id's (same unique capabilities)
 console.log('hello' === 'hello');
 let mySymbol = Symbol('mySymbol');
 let mySymbol2 = Symbol('mySymbol');
 
 console.log(mySymbol === mySymbol2); // = false
 
+// typeof --> the typeof operator returns a string indicating the type. See examples below.
 console.log(typeof ''); // = string
 console.log(typeof 1); // = number
 console.log(typeof true); // = boolean
-
 console.log(typeof mySymbol); // symbol
 console.log(typeof myBigInt); // bigint
 
+// examples from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+console.log(typeof 42); // expected output: "number"
+console.log(typeof 'blubber'); // expected output: "string"
+console.log(typeof true); // expected output: "boolean"
+console.log(typeof undeclaredVariable); // expected output: "undefined"
 
 
 
@@ -207,7 +221,7 @@ document.body.append(ul);
 ul.append(li);
 
 // remove the h1 element from the body
-// h1.remove();
+// h1.remove(); // <-- this targets and removes the h1 from the body
 
 // retrieve elements from the document
 const p = document.querySelector('p');
@@ -215,3 +229,5 @@ const p = document.querySelector('p');
 // interact with element styles
 p.classList.add('red');
 p.style.color = 'red';
+
+// ***look up Dominant relation*** 
