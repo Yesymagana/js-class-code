@@ -1,0 +1,8 @@
+"get something with fetch": {
+    "prefix": "fetchGet",
+    "body": [
+      "fetch('url')",
+      "    .then(response => response.json())"
+    ],
+    "description": "get something with fetch"
+  }
